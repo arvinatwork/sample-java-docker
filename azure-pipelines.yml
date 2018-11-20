@@ -2,10 +2,10 @@
 # Build using a Gradle wrapper script
 - task: Gradle@2
   inputs:
-    #gradleWrapperFile: 'gradlew' 
+    gradleWrapperFile: 'gradlew' 
     #workingDirectory: # Optional
     #options: # Optional
-    #tasks: 'build' 
+    tasks: 'build' 
     #publishJUnitResults: true 
     #testResultsFiles: '**/TEST-*.xml' # Required when publishJUnitResults == True
     #testRunTitle: # Optional
