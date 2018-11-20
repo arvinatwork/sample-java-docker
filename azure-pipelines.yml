@@ -37,22 +37,30 @@ jobs:
   steps:
   - task: Docker@1
     inputs:
-      command: 'build'
       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
-
-- job: DockerLogin
-  displayName: Docker Login
-  steps:
   - task: Docker@1
     inputs:
       command: 'login'
       containerregistrytype: 'Container Registry'
       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
-
-- job: DockerPush
-  displayName: Docker Push
-  steps:
   - task: Docker@1
     inputs:
       command: 'push'
       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
+
+# - job: DockerLogin
+#   displayName: Docker Login
+#   steps:
+#   - task: Docker@1
+#     inputs:
+#       command: 'login'
+#       containerregistrytype: 'Container Registry'
+#       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
+
+# - job: DockerPush
+#   displayName: Docker Push
+#   steps:
+#   - task: Docker@1
+#     inputs:
+#       command: 'push'
+#       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
