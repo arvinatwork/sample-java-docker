@@ -3,7 +3,13 @@ buildscript {
 		springBootVersion = '2.1.0.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		maven {
+            url 'https://cdaasasia.jfrog.io/cdaasasia/gradle-release'
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        } 
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -20,7 +26,13 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	maven {
+            url 'https://cdaasasia.jfrog.io/cdaasasia/gradle-release'
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        } 
 }
 
 

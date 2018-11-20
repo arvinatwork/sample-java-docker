@@ -3,6 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
 jobs:
 - job: HelloSample
   displayName: Say Hello 
@@ -30,3 +31,13 @@ jobs:
     inputs:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
+
+# - job: DockerBuild
+#   displayName: Docker Build
+#   pool:
+#     vmImage: 'Ubuntu 16.04'
+#   steps:
+#   - task: Docker@1
+#     inputs:
+#       command: 'build'
+#       imageName: 'ingasia.azurecr.io/java-sample:$(Build.BuildId)'
