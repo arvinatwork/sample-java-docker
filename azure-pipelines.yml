@@ -32,12 +32,12 @@ jobs:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
 
-# - job: DockerBuild
-#   displayName: Docker Build
-#   pool:
-#     vmImage: 'Ubuntu 16.04'
-#   steps:
-#   - task: Docker@1
-#     inputs:
-#       command: 'build'
-#       imageName: 'ingasia.azurecr.io/java-sample:$(Build.BuildId)'
+- job: DockerBuild
+  displayName: Docker Build
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - task: Docker@1
+    inputs:
+      command: 'build'
+      imageName: 'ingasia.azurecr.io/java-sample:$(Build.BuildId)'
