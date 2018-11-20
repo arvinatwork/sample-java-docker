@@ -4,24 +4,24 @@
 # https://aka.ms/yaml
 
 jobs:
-- job: Hello sample
+- job: HelloSample
   displayName: Say Hello 
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: echo "Hello Azure DevOps"
 
-- job: Gradle show tasks
+- job: GradleTasks
   displayName: Show Gradle Tasks  
   pool:
     vmImage: 'Ubuntu 16.04'
   steps:
-  - script: 
-    - task: Gradle@2
+  - task: Gradle@2
+    inputs:
       gradleWrapperFile: 'gradlew'
       tasks: 'tasks'
 
-- job: Gradle build
+- job: GradleBuild
   displayName: Gradle Build
   pool:
     vmImage: 'Ubuntu 16.04'
