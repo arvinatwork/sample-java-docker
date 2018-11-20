@@ -34,8 +34,6 @@ jobs:
 
 - job: DockerBuild
   displayName: Docker Build
-  pool:
-    vmImage: 'Ubuntu 16.04'
   steps:
   - task: Docker@1
     inputs:
@@ -44,8 +42,6 @@ jobs:
 
 - job: DockerLogin
   displayName: Docker Login
-  pool:
-    vmImage: 'Ubuntu 16.04'
   steps:
   - task: Docker@1
     inputs:
@@ -55,8 +51,6 @@ jobs:
 
 - job: DockerPush
   displayName: Docker Push
-  pool:
-    vmImage: 'Ubuntu 16.04'
   steps:
   - task: Docker@1
     inputs:
