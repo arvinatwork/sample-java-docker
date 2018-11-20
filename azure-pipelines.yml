@@ -3,17 +3,18 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-pool:
-  vmImage: 'Ubuntu 16.04'
-
 jobs:
 - job: Hello sample
   displayName: Say Hello 
+  pool:
+    vmImage: 'Ubuntu 16.04'
   steps:
   - script: echo "Hello Azure DevOps"
 
 - job: Gradle show tasks
   displayName: Show Gradle Tasks  
+  pool:
+    vmImage: 'Ubuntu 16.04'
   steps:
   - script: 
     - task: Gradle@2
@@ -21,7 +22,9 @@ jobs:
       tasks: 'tasks'
 
 - job: Gradle build
-  displayName: 
+  displayName: Gradle Build
+  pool:
+    vmImage: 'Ubuntu 16.04'
   steps:
   - task: Gradle@2
     inputs:
