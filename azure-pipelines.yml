@@ -40,4 +40,15 @@ jobs:
   - task: Docker@1
     inputs:
       command: 'build'
-      imageName: 'ingasia.azurecr.io/java-sample:$(Build.BuildId)'
+      imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
+
+- job: DockerLogin
+  displayName: Docker Login
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - task: Docker@1
+    inputs:
+      command: 'login'
+      containerregistrytype: 'Container Registry'
+      dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
