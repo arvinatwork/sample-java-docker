@@ -52,3 +52,13 @@ jobs:
       command: 'login'
       containerregistrytype: 'Container Registry'
       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
+
+- job: DockerPush
+  displayName: Docker Push
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  steps:
+  - task: Docker@1
+    inputs:
+      command: 'push'
+      imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
