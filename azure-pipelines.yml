@@ -32,35 +32,21 @@ jobs:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
 
-- job: DockerBuild
+- job: DockerBuildPush
   displayName: Docker Build
   steps:
   - task: Docker@1
+    displayName: Docker build
     inputs:
       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
   - task: Docker@1
+    displayName: Docker login
     inputs:
       command: 'login'
       containerregistrytype: 'Container Registry'
       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
   - task: Docker@1
+    displayName: Docker push
     inputs:
       command: 'push'
       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
-
-# - job: DockerLogin
-#   displayName: Docker Login
-#   steps:
-#   - task: Docker@1
-#     inputs:
-#       command: 'login'
-#       containerregistrytype: 'Container Registry'
-#       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
-
-# - job: DockerPush
-#   displayName: Docker Push
-#   steps:
-#   - task: Docker@1
-#     inputs:
-#       command: 'push'
-#       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
