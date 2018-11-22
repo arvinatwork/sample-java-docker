@@ -1,1 +1,1 @@
-Sampole
+Sample triggers
