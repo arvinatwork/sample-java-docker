@@ -1,1 +1,1 @@
-Sample trigger
+Sample triggers
