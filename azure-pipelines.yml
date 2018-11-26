@@ -8,45 +8,46 @@ jobs:
 - job: HelloSample
   displayName: Say Hello 
   pool:
+    name: "Kubernetes Runners"
     vmImage: 'Ubuntu 16.04'
   steps:
   - script: echo "Hello Azure DevOps"
 
-- job: GradleTasks
-  displayName: Show Gradle Tasks  
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - task: Gradle@2
-    inputs:
-      gradleWrapperFile: 'gradlew'
-      tasks: 'tasks'
+# - job: GradleTasks
+#   displayName: Show Gradle Tasks  
+#   pool:
+#     vmImage: 'Ubuntu 16.04'
+#   steps:
+#   - task: Gradle@2
+#     inputs:
+#       gradleWrapperFile: 'gradlew'
+#       tasks: 'tasks'
 
-- job: GradleBuild
-  displayName: Gradle Build
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - task: Gradle@2
-    inputs:
-      gradleWrapperFile: 'gradlew'
-      tasks: 'build'
+# - job: GradleBuild
+#   displayName: Gradle Build
+#   pool:
+#     vmImage: 'Ubuntu 16.04'
+#   steps:
+#   - task: Gradle@2
+#     inputs:
+#       gradleWrapperFile: 'gradlew'
+#       tasks: 'build'
 
-- job: DockerBuildPush
-  displayName: Docker Build
-  steps:
-  - task: Docker@1
-    displayName: Docker build
-    inputs:
-      imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
-  - task: Docker@1
-    displayName: Docker login
-    inputs:
-      command: 'login'
-      containerregistrytype: 'Container Registry'
-      dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
-  - task: Docker@1
-    displayName: Docker push
-    inputs:
-      command: 'push'
-      imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
+# - job: DockerBuildPush
+#   displayName: Docker Build
+#   steps:
+#   - task: Docker@1
+#     displayName: Docker build
+#     inputs:
+#       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
+#   - task: Docker@1
+#     displayName: Docker login
+#     inputs:
+#       command: 'login'
+#       containerregistrytype: 'Container Registry'
+#       dockerRegistryEndpoint: ArtifactoryDockerServiceConnection
+#   - task: Docker@1
+#     displayName: Docker push
+#     inputs:
+#       command: 'push'
+#       imageName: 'cdaasasia-docker-local.jfrog.io/devops/java-sample:$(Build.BuildId)'
