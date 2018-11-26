@@ -7,7 +7,7 @@
 jobs:
 - job: HelloSample
   displayName: Say Hello 
-  pool: kubernetes-runners-agent-845c7db5c4-c8j6b
+  pool: Kubernetes Runners
     # vmImage: 'Ubuntu 16.04'
   steps:
   - script: echo "Hello Azure DevOps"
