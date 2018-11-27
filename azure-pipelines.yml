@@ -8,7 +8,7 @@ jobs:
 - job: HelloSample
   displayName: Say Hello 
   pool: 
-    name: "kubernetes-runner"
+    name: "K8s Runners"
     # vmImage: 'Ubuntu 16.04'
   steps:
   - script: echo "Hello Azure DevOps"
